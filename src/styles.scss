@@ -29,5 +29,59 @@ html {
   font: var(--mat-sys-body-medium);
 }/* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  background: aliceblue;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  width: 100%;
+}
+
+header {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  justify-items: center;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+h1 {
+  color: #3C3C3CFF;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  outline: 1px solid blue;
+  margin: 10px 10px;
+}
+
+.body-section-top {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+  margin: 10px 10px;
+  
+  mat-form-field {
+    min-width: 200px;
+  }
+}
+
+.body-secion-bottom {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  justify-items: center;
+  outline: 1px solid red;
+}
