@@ -1,1 +1,26 @@
-<input type="search" name="" id="">
+<div class="container">
+    <section class="body-section-top">
+        <mat-form-field class="form-search">
+            <mat-label>Enter the city name...</mat-label>
+            <input matInput type="search" name="Search bar" id="SearchBar" [(ngModel)]="value">
+            @if (value) {
+                <button matSuffix matIconButton aria-label="Search" >
+                    <mat-icon>search</mat-icon>
+                </button>
+            }
+        </mat-form-field>
+    </section>
+    <section class="body-section-bottom">
+        <div>
+            <p>Temperature:</p>
+            <p>Wind speed:</p>
+            <p>Likelihood of rain:</p>
+            <p>General weather:</p>
+        </div>
+
+        <div>
+            <p>Previous and future 24:</p>
+        </div>
+    </section>
+</div>
+
