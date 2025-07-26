@@ -4,23 +4,40 @@
             <mat-label>Enter the city name...</mat-label>
             <input matInput type="search" name="Search bar" id="SearchBar" [(ngModel)]="value">
             @if (value) {
-                <button matSuffix matIconButton aria-label="Search" >
+                <button matSuffix matIconButton aria-label="Search" (click)="searchCity()">
                     <mat-icon>search</mat-icon>
                 </button>
             }
         </mat-form-field>
     </section>
     <section class="body-section-bottom">
-        <div>
-            <p>Temperature:</p>
-            <p>Wind speed:</p>
-            <p>Likelihood of rain:</p>
-            <p>General weather:</p>
-        </div>
 
-        <div>
-            <p>Previous and future 24:</p>
-        </div>
+        <mat-card appearance="outlined" class="city-card">
+            <mat-card-header>
+                <mat-card-title>City</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>Temperature: </p>
+                <p>Description</p>
+            </mat-card-content>
+            <mat-card-footer>
+                <mat-chip-set aria-label="Chihuahua traits">
+                    <mat-chip>Humidity:</mat-chip>
+                    <mat-chip>Feels like:</mat-chip>
+                    <mat-chip>Wind speed:</mat-chip>
+                    <mat-chip>Likelihood of rain:</mat-chip>
+                    <mat-chip>Max./Min. temperature:</mat-chip>
+                </mat-chip-set>
+            </mat-card-footer>
+        </mat-card>
+
+        <mat-card appearance="outlined">
+            <mat-card-header>
+                <mat-card-title>Previous and future 24 hours</mat-card-title>
+            </mat-card-header>
+            <mat-card-content></mat-card-content>
+            <mat-card-footer></mat-card-footer>
+        </mat-card>
     </section>
 </div>
 
