@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,22 +10,23 @@ export class Openweather {
   private apiGeoUrl = 'http://api.openweathermap.org/geo/1.0/direct';
   private apiWeatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   /**
- * Gets geographic coordinates for a given city.
- * More info: https://openweathermap.org/api/geocoding-api
- * @param city Name of the city to search for
- * @param limit Maximum number of results (default 5)
- * @returns Observable with the geographic data
- */
+   * Gets geographic coordinates for a given city.
+   * More info: https://openweathermap.org/api/geocoding-api
+   * @param city Name of the city to search for
+   * @param limit Maximum number of results (default 5)
+   * @returns Observable with the geographic data
+   */
   getCoordinatesByCity(city: string, limit: number = 5): Observable<any> {
     const params = {
       q: city,
-      limit: toString(),
+      limit: limit.toString(),
       appid: this.apiKey
     };
-    return this.http.get(this.apiGeoUrl, { params });
+    return this.http.get(this.apiGeoUrl, {params});
   }
 
   /**
@@ -42,20 +43,20 @@ export class Openweather {
       appid: this.apiKey
     }
 
-    return this.http.get(this.apiWeatherUrl, { params })
+    return this.http.get(this.apiWeatherUrl, {params})
   }
 
   /**
-   * 
+   *
    * @param city Standard city name.
-   * @returns 
+   * @returns
    */
   getCurrentWeatherByCity(city: string): Observable<any> {
     const params = {
       q: city,
       appid: this.apiKey
     }
-    
-    return this.http.get(this.apiWeatherUrl, { params })
+
+    return this.http.get(this.apiWeatherUrl, {params})
   }
 }

@@ -1,6 +1,4 @@
-import { TestBed } from '@angular/core/testing';
-
-import { GeoLocation } from './geolocation';
+import {TestBed} from '@angular/core/testing';
 
 describe('Location', () => {
   let service: Location;

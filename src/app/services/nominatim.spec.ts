@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { Nominatim } from './nominatim';
+import {Nominatim} from './nominatim';
 
 describe('Geocoding', () => {
   let service: Nominatim;
