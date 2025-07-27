@@ -33,7 +33,7 @@ export class Nominatim {
     const params = new HttpParams()
       .set('q', query)
       .set('format', 'json')
-      .set('limit', '10')
+      .set('limit', '5')
       .set('addressdetails', '1');
 
     return this.http.get<CityResult[]>(this.apiUrl, {params})
