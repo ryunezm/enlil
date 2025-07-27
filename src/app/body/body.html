@@ -2,7 +2,12 @@
   <section class="body-section-top">
     <mat-form-field class="form-search">
       <mat-label>Enter the city name...</mat-label>
-      <input [(ngModel)]="value" id="SearchBar" matInput name="Search bar" type="search">
+      <input [(ngModel)]="value"
+             (keyup.enter)="searchCity()"       
+             id="SearchBar"
+             matInput
+             name="Search bar"
+             type="search">
       @if (value) {
         <button matSuffix matIconButton aria-label="Search" (click)="searchCity()">
           <mat-icon>search</mat-icon>
@@ -11,6 +16,19 @@
     </mat-form-field>
 
     <div class="search-results">
+      @if (results$ | async; as results) {
+        @if (results.length > 0) {
+          <mat-list>
+            @for (city of results; track city) {
+              <mat-list-item (click)="selectCity(city)" [class.selected]="city === selectedCity">
+                <mat-icon matListItemIcon>location_on</mat-icon>
+                <div matListItemTitle>{{city.display_name}}</div>
+                <div matListItemLine>{{city.lat}}, {{city.lon}}</div>
+              </mat-list-item>
+            }
+          </mat-list>
+        }
+      }
     </div>
   </section>
 
@@ -33,7 +51,6 @@
         </mat-chip-set>
       </mat-card-footer>
     </mat-card>
-
     <mat-card appearance="outlined">
       <mat-card-header>
         <mat-card-title>Previous and future 24 hours</mat-card-title>
