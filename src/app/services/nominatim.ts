@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 import {map, Observable} from 'rxjs';
 
 // Interface describing the structure of a response from Nominatim
-interface CityResult {
+export interface CityResult {
   name?: string;
   display_name: string;
   lat: string;

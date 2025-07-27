@@ -4,6 +4,7 @@
 // Learn more about theming and how to use it for your application's
 // custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
+@use './typography.scss' as typ;
 
 html {
   @include mat.theme((
@@ -11,7 +12,10 @@ html {
       primary: mat.$azure-palette,
       tertiary: mat.$blue-palette,
     ),
-    typography: Roboto,
+    typography: (
+      brand-family: typ.$google-sans-code-font-family,
+      plain-family: typ.$google-sans-code-font-family,
+    ),
     density: 0,
   ));
 
@@ -35,7 +39,7 @@ html, body {
 }
 
 body {
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: typ.$google-sans-code-font-family, monospace;
   margin: 0;
   width: 100%;
 }
