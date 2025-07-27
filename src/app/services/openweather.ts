@@ -2,6 +2,58 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 
+// Interface describing the structure of a response from OpenWeather from latitude and longitude args 
+export interface WeatherResponse {
+  coord: {
+    lon: number;
+    lat: number;
+  };
+  weather: Array<{
+    id: number;
+    main: string;
+    description: string;
+    icon: string;
+  }>;
+  base: string;
+  main: {
+    temp: number;
+    feels_like: number;
+    temp_min: number;
+    temp_max: number;
+    pressure: number;
+    humidity: number;
+    sea_level: number;
+    grnd_level: number;
+  };
+  visibility: number;
+  wind: {
+    speed: number;
+    deg: number;
+    gust?: number;
+  };
+  rain?: {
+    '1h': number;
+  };
+  snow?: {
+    '1h': number;
+  }
+  clouds: {
+    all: number;
+  };
+  dt: number;
+  sys: {
+    type: number;
+    id: number;
+    country: string;
+    sunrise: number;
+    sunset: number;
+  };
+  timezone: number;
+  id: number;
+  name: string;
+  cod: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -36,14 +88,14 @@ export class Openweather {
    * @param lon Longitude of the city
    * @returns Observable with weather data
    */
-  getCurrentWeatherByLatLon(lat: number, lon: number): Observable<any> {
+  getCurrentWeatherByLatLon(lat: number, lon: number): Observable<WeatherResponse> {
     const params = {
       lat: lat.toString(),
       lon: lon.toString(),
       appid: this.apiKey
     }
 
-    return this.http.get(this.apiWeatherUrl, {params})
+    return this.http.get<WeatherResponse>(this.apiWeatherUrl, {params})
   }
 
   /**
