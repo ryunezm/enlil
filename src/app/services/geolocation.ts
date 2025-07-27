@@ -4,7 +4,7 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class GeoLocation {
-
+/*
   getCurrentLocation(): Promise<GeolocationPosition> {
     return new Promise((resolve, reject) => {
       if (!navigator.geolocation) {
@@ -14,5 +14,5 @@ export class GeoLocation {
       }
     })
   }
-
+*/
 }
