@@ -35,10 +35,11 @@ export class Body {
   results$: Observable<CityResult[]> = of([]);
   weatherResponse$: Observable<WeatherResponse> = of();
 
-  constructor(private nominatim: Nominatim, private openweather: Openweather) {}
+  constructor(private nominatim: Nominatim, private openweather: Openweather) {
+  }
 
   searchCity() {
-    if(!this.value.trim()) return;
+    if (!this.value.trim()) return;
     this.results$ = this.nominatim.searchFlexible(this.value);
   }
 
@@ -49,11 +50,11 @@ export class Body {
   }
 
   getWeatherFromSelectedCity() {
-    if(!this.selectedCity?.lat || !this.selectedCity?.lon) return;
+    if (!this.selectedCity?.lat || !this.selectedCity?.lon) return;
 
     const latitude = parseFloat(this.selectedCity?.lat);
-    const longitude = parseFloat(this.selectedCity?.lon);  
+    const longitude = parseFloat(this.selectedCity?.lon);
     this.weatherResponse$ = this.openweather.getCurrentWeatherByLatLon(latitude, longitude);
     console.log(this.weatherResponse$);
-  }  
+  }
 }

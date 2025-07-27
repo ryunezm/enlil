@@ -116,7 +116,7 @@ mat-list-item {
   &.selected {
     background-color: #e3f2fd;
     border-left: 4px solid #2196f3;
-    
+
     mat-icon {
       color: #2196f3;
     }
@@ -163,7 +163,7 @@ mat-list-item {
 mat-list-item.selected {
   background-color: #e3f2fd;
   border-left: 4px solid #2196f3;
-  
+
   mat-icon {
     color: #2196f3;
   }
@@ -237,8 +237,12 @@ mat-list-item.selected {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 // Additional styles to enhance the appearance

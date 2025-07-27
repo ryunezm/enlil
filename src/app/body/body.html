@@ -2,8 +2,8 @@
   <section class="body-section-top">
     <mat-form-field class="form-search">
       <mat-label>Enter the city name...</mat-label>
-      <input [(ngModel)]="value"
-             (keyup.enter)="searchCity()"       
+      <input (keyup.enter)="searchCity()"
+             [(ngModel)]="value"
              id="SearchBar"
              matInput
              name="Search bar"
@@ -22,8 +22,8 @@
             @for (city of results; track city) {
               <mat-list-item (click)="selectCity(city)" [class.selected]="city === selectedCity">
                 <mat-icon matListItemIcon>location_on</mat-icon>
-                <div matListItemTitle>{{city.display_name}}</div>
-                <div matListItemLine>{{city.lat}}, {{city.lon}}</div>
+                <div matListItemTitle>{{ city.display_name }}</div>
+                <div matListItemLine>{{ city.lat }}, {{ city.lon }}</div>
               </mat-list-item>
             }
           </mat-list>
@@ -39,35 +39,37 @@
           <mat-card-title>Details</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <p>Temperature: {{(weather.main.temp - 273.15) | number:'1.1-1'}}°C</p>
-          <p>Description: {{weather.weather[0].description | titlecase}}</p>
+          <p>Temperature: {{ (weather.main.temp - 273.15) | number:'1.1-1' }}°C</p>
+          <p>Description: {{ weather.weather[0].description | titlecase }}</p>
         </mat-card-content>
         <mat-card-footer>
           <mat-chip-set aria-label="Weather details">
-            <mat-chip>Humidity: {{weather.main.humidity}}%</mat-chip>
-            <mat-chip>Feels like: {{(weather.main.feels_like - 273.15) | number:'1.1-1'}}°C</mat-chip>
-            <mat-chip>Wind speed: {{weather.wind.speed}} m/s</mat-chip>
-            <mat-chip>Rain: {{weather.rain?.['1h'] || 0}} mm/h</mat-chip>
-            <mat-chip>Min/Max: {{(weather.main.temp_min - 273.15) | number:'1.1-1'}}°C / {{(weather.main.temp_max - 273.15) | number:'1.1-1'}}°C</mat-chip>
+            <mat-chip>Humidity: {{ weather.main.humidity }}%</mat-chip>
+            <mat-chip>Feels like: {{ (weather.main.feels_like - 273.15) | number:'1.1-1' }}°C</mat-chip>
+            <mat-chip>Wind speed: {{ weather.wind.speed }} m/s</mat-chip>
+            <mat-chip>Rain: {{ weather.rain?.['1h'] || 0 }} mm/h</mat-chip>
+            <mat-chip>Min/Max: {{ (weather.main.temp_min - 273.15) | number:'1.1-1' }}°C
+              / {{ (weather.main.temp_max - 273.15) | number:'1.1-1' }}°C
+            </mat-chip>
           </mat-chip-set>
         </mat-card-footer>
       </mat-card>
-      
+
       <mat-card appearance="outlined">
         <mat-card-header>
           <mat-card-title>Additional Weather Information</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <p><strong>Pressure:</strong> {{weather.main.pressure}} hPa</p>
-          <p><strong>Visibility:</strong> {{weather.visibility / 1000}} km</p>
-          <p><strong>Cloud Coverage:</strong> {{weather.clouds.all}}%</p>
-          <p><strong>Wind Direction:</strong> {{weather.wind.deg}}°</p>
+          <p><strong>Pressure:</strong> {{ weather.main.pressure }} hPa</p>
+          <p><strong>Visibility:</strong> {{ weather.visibility / 1000 }} km</p>
+          <p><strong>Cloud Coverage:</strong> {{ weather.clouds.all }}%</p>
+          <p><strong>Wind Direction:</strong> {{ weather.wind.deg }}°</p>
           @if (weather.wind.gust) {
-            <p><strong>Wind Gust:</strong> {{weather.wind.gust}} m/s</p>
+            <p><strong>Wind Gust:</strong> {{ weather.wind.gust }} m/s</p>
           }
         </mat-card-content>
         <mat-card-footer>
-          <p><small>Last updated: {{weather.dt * 1000 | date:'medium'}}</small></p>
+          <p><small>Last updated: {{ weather.dt * 1000 | date:'medium' }}</small></p>
         </mat-card-footer>
       </mat-card>
     } @else {
@@ -89,7 +91,7 @@
           </mat-chip-set>
         </mat-card-footer>
       </mat-card>
-      
+
       <mat-card appearance="outlined">
         <mat-card-header>
           <mat-card-title>Additional Weather Information</mat-card-title>
