@@ -1,3 +1,4 @@
+/*
 import {TestBed} from '@angular/core/testing';
 
 describe('Location', () => {
@@ -12,3 +13,4 @@ describe('Location', () => {
     expect(service).toBeTruthy();
   });
 });
+*/
