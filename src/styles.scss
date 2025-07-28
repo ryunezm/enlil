@@ -1,3 +1,7 @@
+// ==================================================
+// IMPORTS & THEME CONFIGURATION
+// ==================================================
+
 // Include theming for Angular Material with `mat.theme()`.
 // This Sass mixin will define CSS variables that are used for styling Angular Material
 // components according to the Material 3 design spec.
@@ -5,6 +9,10 @@
 // custom components at https://material.angular.dev/guide/theming
 @use '@angular/material' as mat;
 @use './typography.scss' as typ;
+
+// ==================================================
+// GLOBAL HTML & THEME SETUP
+// ==================================================
 
 html {
   @include mat.theme((
@@ -44,6 +52,10 @@ body {
   margin: 0;
   width: 100%;
 }
+
+// ==================================================
+// LAYOUT COMPONENTS
+// ==================================================
 
 header {
   align-content: center;
@@ -102,6 +114,29 @@ h1 {
     }
   }
 }
+
+footer {
+  display: flex;
+  margin-top: 20px;
+  padding-left: 15%;
+  padding-right: 15%;
+  height: 100px;
+
+  > p {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-size: medium;
+    justify-content: center;
+    justify-items: center;
+    width: 100%;
+  }
+}
+
+// ==================================================
+// MATERIAL LIST COMPONENTS
+// ==================================================
 
 mat-list-item {
   cursor: pointer;
@@ -179,34 +214,20 @@ mat-list-item.selected {
   }
 }
 
-// Entry animation for the list
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+// ==================================================
+// SEARCH RESULTS & STATES
+// ==================================================
 
 .search-results {
   animation: slideDown 0.3s ease-out;
-}
+  position: relative;
+  z-index: 10;
 
-// Responsive
-@media (max-width: 768px) {
-  .search-results {
-    display: flex;
-    width: 100%;
-
-    mat-list {
-      width: 100%;
-    }
-  }
-  mat-list-item {
-    padding: 10px 10px;
+  // More pronounced shadow effect when open
+  mat-list {
+    border-style: 2px solid;
+    border-radius: 5px;
+    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -232,27 +253,9 @@ mat-list-item.selected {
   }
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-// Additional styles to enhance the appearance
-.search-results {
-  position: relative;
-  z-index: 10;
-
-  // More pronounced shadow effect when open
-  mat-list {
-    border-style: 2px solid;
-    border-radius: 5px;
-    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.15);
-  }
-}
+// ==================================================
+// UTILITY COMPONENTS
+// ==================================================
 
 .button-back-to-portfolio {
   display: flex;
@@ -270,23 +273,46 @@ mat-list-item.selected {
   min-width: 100%;
 }
 
+// ==================================================
+// ANIMATIONS
+// ==================================================
 
-footer {
-  /*background: linear-gradient(to bottom, aliceblue, ghostwhite);*/
-  display: flex;
-  margin-top: 20px;
-  padding-left: 15%;
-  padding-right: 15%;
-  height: 100px;
+// Entry animation for the list
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-footer > p {
-  display: flex;
-  align-content: center;
-  align-items: center;
-  font-weight: bolder;
-  font-size: medium;
-  justify-content: center;
-  justify-items: center;
-  width: 100%;
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// ==================================================
+// RESPONSIVE DESIGN
+// ==================================================
+
+@media (max-width: 768px) {
+  .search-results {
+    display: flex;
+    width: 100%;
+
+    mat-list {
+      width: 100%;
+    }
+  }
+  
+  mat-list-item {
+    padding: 10px 10px;
+  }
 }
