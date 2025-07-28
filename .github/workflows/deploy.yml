@@ -20,6 +20,9 @@ jobs:
         
     - name: Install dependencies
       run: npm ci
+
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli
       
     - name: Build
       run: ng build --configuration production --base-href "https://ryunezm.github.io/enlil/"
