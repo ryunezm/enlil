@@ -48,12 +48,14 @@ export class Nominatim {
       );
   }
 
+  /*
   /**
    * Performs a structured search using separated city and country fields.
    * More precise than the flexible query and recommended when both parts are known.
    * @param city The city name (e.g., "Bogotá")
    * @param country The country name (e.g., "Colombia")
    */
+  /*
   searchStructured(city: string, country: string): Observable<CityResult[]> {
     const params = new HttpParams()
       .set('city', city)
@@ -73,4 +75,5 @@ export class Nominatim {
           })))
       );
   }
+  */
 }

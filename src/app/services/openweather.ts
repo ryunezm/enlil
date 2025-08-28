@@ -72,6 +72,7 @@ export class Openweather {
    * @param limit Maximum number of results (default 5)
    * @returns Observable with the geographic data
    */
+  /*
   getCoordinatesByCity(city: string, limit: number = 5): Observable<any> {
     const params = {
       q: city,
@@ -80,6 +81,7 @@ export class Openweather {
     };
     return this.http.get(this.apiGeoUrl, {params});
   }
+   */
 
   /**
    * Gets weather data from the coordinates of a city.
@@ -103,6 +105,7 @@ export class Openweather {
    * @param city Standard city name.
    * @returns
    */
+  /*
   getCurrentWeatherByCity(city: string): Observable<any> {
     const params = {
       q: city,
@@ -111,4 +114,5 @@ export class Openweather {
 
     return this.http.get(this.apiWeatherUrl, {params})
   }
+  */
 }
