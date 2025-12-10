@@ -9,7 +9,7 @@
              name="Search bar"
              type="search">
       @if (value) {
-        <button matSuffix matIconButton aria-label="Search" (click)="searchCity()">
+        <button (click)="searchCity()" aria-label="Search" matIconButton matSuffix>
           <mat-icon>search</mat-icon>
         </button>
       }

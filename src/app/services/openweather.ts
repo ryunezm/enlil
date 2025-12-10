@@ -2,7 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 
-// Interface describing the structure of a response from OpenWeather from latitude and longitude args 
+// Interface describing the structure of a response from OpenWeather from latitude and longitude args
 export interface WeatherResponse {
   coord: {
     lon: number;
@@ -72,6 +72,7 @@ export class Openweather {
    * @param limit Maximum number of results (default 5)
    * @returns Observable with the geographic data
    */
+
   /*
   getCoordinatesByCity(city: string, limit: number = 5): Observable<any> {
     const params = {
