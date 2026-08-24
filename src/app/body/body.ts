@@ -1,5 +1,5 @@
 // Required imports from Angular, Angular Material, and custom services
-import {Component} from '@angular/core';
+import {Component, ChangeDetectionStrategy} from '@angular/core';
 import {AsyncPipe, DatePipe, DecimalPipe, TitleCasePipe} from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -29,6 +29,7 @@ import {Observable, of} from 'rxjs';
     TitleCasePipe
   ],
   templateUrl: './body.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './body.scss'
 })
 export class Body {

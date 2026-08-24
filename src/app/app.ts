@@ -1,4 +1,4 @@
-import {Component, signal} from '@angular/core';
+import {Component, signal, ChangeDetectionStrategy} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {Header} from "./header/header";
 import {Body} from "./body/body";
@@ -8,6 +8,7 @@ import {Footer} from "./footer/footer";
   selector: 'app-root',
   imports: [RouterOutlet, Header, Body, Footer],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.scss'
 })
 export class App {
